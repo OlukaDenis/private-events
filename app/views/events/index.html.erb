@@ -1,0 +1,12 @@
+<h4> Events </h4>
+
+<div>
+    <% if logged_in? %>
+        <%= link_to "Add Event", new_event_url, class: 'btn btn-primary' %>
+    <% end %>
+</div>
+<% @events.each do |event| %>
+    <h5> <%= event.title %> </h5>
+    <p> <%= event.description %></p>
+    <p>  <%= event.date %> </p><hr>
+<% end %>
