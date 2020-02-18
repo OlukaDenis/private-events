@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<%= form_for(:session, url: login_path) do |form| %>
+    
+    <%= form.label :username %>
+    <%= form.text_field :username, :class => 'form-control' %>
+
+    <%= form.submit "Login", class: "btn btn-primary" %>                
+<% end %>
+
+<div class="text-center">
+    <p class="mt-20">No account? <%= link_to 'Signup now!', signup_path%> </p>
+</div>

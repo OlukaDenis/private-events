@@ -1,0 +1,13 @@
+<h1>Users</h1>
+
+
+<% if logged_in? %>
+    Welcome <%= @user.username %>
+    <%= link_to "Logout", "#"%>
+    <% else %>
+    <%= link_to "Please login", "#"%>
+<% end %>
+
+<%# <% @users.each do |user| %>
+    <%# <p> <%= user.username %> <!--/p> <hr-->
+<%# <% end %> 
