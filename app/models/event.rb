@@ -11,5 +11,22 @@ class Event < ApplicationRecord
                             dependent: :destroy
 
     has_many :attendees, through: :attendances, source: :attendee
-                            
+
+    scope :past, -> {
+                where('date < ?', DateTime.current)
+                .order(date: :desc)
+            }
+            
+    scope :upcoming, -> {
+        where('date >= ?', DateTime.current)
+          .order(date: :asc)
+      }
+
+    def attendee?(user)
+        attendees.include? user
+    end
+              
+    def upcoming?
+        date&.future?
+    end
 end

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-<a class="navbar-brand" href="/events/index">Private Events</a>
+<a class="navbar-brand" href="/events/index">Happening</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
     <ul class="navbar-nav ml-auto">
     <li class="nav-item"> <%= link_to "Home", root_path, :class => 'nav-link'%> </li>
     <% if logged_in? %>
-        <li><%= link_to "Users", users_path, class: 'nav-link' %></li>
+        <li><%= link_to "Create Event", new_event_path, class: 'nav-link' %></li>
         <li> <%= link_to "Logout", logout_path, method: :delete, :class => 'nav-link'%></li>
     <% else %>
         <li class="nav-item pr-50"> <%= link_to "SignUp", signup_path, :class => 'nav-link'%></li>
