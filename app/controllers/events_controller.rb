@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :logged_in_user, only: %i[new create destroy]
   before_action :correct_user, only: [:destroy]
 
   def new
@@ -14,9 +16,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.creator_events.build(events_params)
-    if @event.save
-      redirect_to root_url
-    end
+    redirect_to root_url if @event.save
   end
 
   def show
@@ -41,5 +41,4 @@ class EventsController < ApplicationController
     @event = current_user.creator_events.find_by(id: params[:id])
     redirect_to root_url if @event.nil?
   end
-
 end
