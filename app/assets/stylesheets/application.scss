@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.top-container {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+ol {
+    list-style-type: none;
+}
+
+.event {
+    margin-top: 16px;
+
+    p {
+        display: block;
+    }
+
+    .creator a {
+        color: rgb(26, 25, 25);
+    }
+
+    .title {
+        font-size: 18px;
+        a{
+        color: black;
+        }
+    }
+    .timestamp {
+        font-style: italic;
+        color: #555;
+        font-size: 14px;
+        margin-left: 8px;
+    }
+}

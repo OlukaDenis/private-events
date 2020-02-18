@@ -1,0 +1,10 @@
+
+<% @events = events %>
+<% if @events.any? %>
+    <div class="events">
+        <% @events.each do |event| %>
+        <%= render event %>
+        <% end %>
+    </div>
+    <%= will_paginate @events %>
+<% end %>

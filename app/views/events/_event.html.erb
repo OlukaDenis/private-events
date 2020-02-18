@@ -1,0 +1,23 @@
+
+<% @event = event %>
+<% @user = @event.creator%>
+<% if @event %>
+   <div class=" event media border p-3">
+        <div class="media-body">
+            <p class="creator">
+                By: <%= link_to @event.creator.username, user_path(@user) %> 
+                <span class="timestamp" ><%= time_ago_in_words(@event.created_at) %> ago.</span>
+            </p>
+            <p class="title">
+                <strong><%= link_to @event.title, event_path(@event) %></strong>
+            </p>
+            <p class="date">
+                <strong>On:</strong> <%= @event.date %>
+            </p>
+        
+            <%= link_to event_path(@event), class: "card-overlay", data: { confirm: "Move to : #{@event.title}?" } do %>
+                <%= render 'shared/functions', event: @event %>
+            <% end %>
+        </div>
+    </div> 
+<% end %>

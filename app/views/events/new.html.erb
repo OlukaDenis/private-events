@@ -1,15 +1,19 @@
 <h5>Create an Event</h5>
 
-<%= form_for @event do |form| %>
-    
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+<div class="row">
+    <div class="col-lg-4">
+        <%= form_for @event do |form| %>
+            
+            <%= form.label :title %>
+            <%= form.text_field :title, class: 'form-control' %>
 
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+            <%= form.label :description %>
+            <%= form.text_area :description, class: 'form-control' %>
 
-    <%= form.label :date %>
-    <%= form.date_field :date, size: "10x1", class: "form-control" %>
+            <%= form.label :date %>
+            <%= form.date_field :date, class: "form-control" %>
 
-    <%= form.submit "Add Event", class: "btn btn-primary" %>                
-<% end %>
+            <%= form.submit "Add Event", class: "btn btn-primary" %>                
+        <% end %>
+    </div>
+</div>

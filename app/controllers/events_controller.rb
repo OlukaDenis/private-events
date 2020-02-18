@@ -1,22 +1,34 @@
 class EventsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :correct_user, only: [:destroy]
 
   def new
-    @event = Event.new
+    @event = current_user.creator_events.build
   end
 
   def index
-    @events = Event.all
+    @events = Event.paginate(page: params[:page])
+    @upcoming = @events.upcoming
+    @past = @events.past
   end
 
   def create
-    @event = current_user.events.build(events_params)
+    @event = current_user.creator_events.build(events_params)
     if @event.save
       redirect_to root_url
     end
   end
 
   def show
-    # @event = Event.find_by(id: params[:id])
+    @event = Event.find(params[:id])
+    @attendees = @event.attendees
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:success] = 'Event deleted successfully'
+    redirect_back(fallback_location: current_user)
   end
 
   private
@@ -24,4 +36,10 @@ class EventsController < ApplicationController
   def events_params
     params.require(:event).permit(:title, :date, :description)
   end
+
+  def correct_user
+    @event = current_user.creator_events.find_by(id: params[:id])
+    redirect_to root_url if @event.nil?
+  end
+
 end
