@@ -47,7 +47,7 @@ $ rails server
 
 Run the tests
 ```sh
-& rails test
+$ rspec
 ```
 
 Open the browser then access it via _http://localhost:3000_
