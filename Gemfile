@@ -55,8 +55,8 @@ end
 group :test do
   # The RSpec tenting framework
   gem 'database_cleaner', '1.8.2'
-  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '3.9.0'
   gem 'shoulda-matchers', '4.3.0'
   # Adds support for Capybara system testing and selenium driver

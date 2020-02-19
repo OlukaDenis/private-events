@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      flash[:danger] = "Failed to create an event"
+      flash[:danger] = 'Failed to create an event'
       render 'new'
     end
   end
