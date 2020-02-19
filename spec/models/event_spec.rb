@@ -23,8 +23,8 @@ RSpec.describe Event, type: :model do
 
     # Not to allow nil values
     it do
-      # expect(@user).not_to allow_value(nil).for(:username)
-      # expect(@user).not_to allow_value(nil).for(:email)
+      expect(@user).not_to allow_value(nil).for(:username)
+      expect(@user).not_to allow_value(nil).for(:email)
     end
   end
 

@@ -13,20 +13,4 @@ RSpec.describe UsersController do
   describe 'GET #create' do
     it { expect(response).to have_http_status(:success) }
   end
-
-  # describe 'POST #create' do
-
-  #     it do
-  #         params = {
-  #             user: {
-  #                 username: "Username",
-  #                 email: "me@me.com"
-  #             }
-  #         }
-
-  #         should permit(:username, :email)
-  #                 .for(:create, params: params)
-  #                 .on(:user)
-  #     end
-  # end
 end

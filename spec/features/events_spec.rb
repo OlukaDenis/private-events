@@ -5,7 +5,6 @@ require 'rails_helper'
 feature 'Events' do
   before(:all) do
     @user = create(:user)
-    # @event = @user.create(:event)
     @user1 = User.create(id: 5, username: 'tester', email: 'test@example.com')
   end
 
