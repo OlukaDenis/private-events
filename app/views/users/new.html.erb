@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col-lg-4">
         <%= form_for(@user, url: signup_path) do |form| %>
+            <%= render 'shared/error_messages', object: form.object %> 
             
             <%= form.label :username %>
             <%= form.text_field :username, class: 'form-control' %>
