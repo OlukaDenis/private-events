@@ -1,0 +1,38 @@
+<h3> Event detail </h3>
+
+ <div class=" event media border p-3">
+    <div class="media-body">
+        <p class="creator a-white">
+            <strong>Created By:</strong> <%= @event.creator.username %>
+        </p>
+        <p class="title">
+            <strong>Title:</strong> <%= @event.title %>
+        </p>
+        <p class="description">
+            <strong>Description:</strong> <%= @event.description %>
+        </p>
+        <p class="date">
+            <strong>Date:</strong> <%= @event.date %>
+        </p>
+        <p class="timestamp">
+            Created <%= time_ago_in_words(@event.created_at) %> ago.
+        </p>
+        <hr>
+
+        <table class="attendees">
+        <th> Attendees <%= @attendees.count %></th>
+        <% @attendees.each do |attendee| %>
+        <tr>
+            <td><%= attendee.username %></td>
+            <td><%= attendee.email %></td>
+            <td><%= link_to 'See profile', attendee %></td>
+        </tr>
+        <% end %>
+        <table>
+        <hr>
+        
+        <%= link_to event_path(@event), class: "card-overlay", data: { confirm: "Move to : #{@event.title}?" } do %>
+            <%= render 'shared/functions', event: @event %>
+        <% end %>
+    </div>
+</div> 
